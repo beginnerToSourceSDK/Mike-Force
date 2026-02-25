@@ -302,8 +302,8 @@
 	    <Key ID="STR_vn_mf_respawn_frogmen">
         <Original>FROGMEN</Original>
       </Key>
-	    <Key ID="STR_vn_mf_respawn_633rdcsg">
-        <Original>633RD CSG</Original>
+	    <Key ID="STR_vn_mf_respawn_633rdTASG">
+        <Original>633rd TASG</Original>
       </Key>
 	    <Key ID="STR_vn_mf_respawn_sasr">
         <Original>ANZAC</Original>
@@ -1365,6 +1365,10 @@
       <Key ID="STR_vn_mf_buildingMenu_category_storage">
         <Original>Storage</Original>
         <English>Storage</English>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_signs">
+        <Original>Signs</Original>
+        <English>Signs</English>
       </Key>
     </Container>
     <Container name="supplies">
