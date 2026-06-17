@@ -15,4 +15,4 @@
 */
 
 // add code you want to run each frame here
-[] call vn_mf_fnc_checkForGas;
+[player] call vn_mf_fnc_checkForGas;
