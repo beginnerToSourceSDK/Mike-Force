@@ -25,7 +25,8 @@ sleep 0.5;
 
 // Teleport player
 player setPosATL _trapdoorPos;
-player _unit setUnitFreefallHeight 100;
+player setUnitFreefallHeight 100;
+player setVariable ["inTunnel", false, true];
 
 // Fade back in
 cutText ["", "BLACK IN", 1];

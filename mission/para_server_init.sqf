@@ -261,6 +261,8 @@ Set up respawn points for players
 
 [] call vn_mf_fnc_respawn_points_init;
 
+call vn_mf_fnc_texture_toggle_load;
+
 /*
 =========================================================================================
 init: `para_g_fnc_scheduler_subsystem_init`
@@ -288,6 +290,17 @@ server performance than scheduled/periodic jobs.
 */
 
 call para_g_fnc_event_subsystem_init;
+
+/*
+=========================================================================================
+init: `vn_mf_fnc_mobile_respawn_init`
+=========================================================================================
+Initialises the M577 mobile tent respawn system.
+Requires both the scheduler and event subsystems to already be running.
+=========================================================================================
+*/
+
+[] call vn_mf_fnc_mobile_respawn_init;
 
 /*
 =========================================================================================
