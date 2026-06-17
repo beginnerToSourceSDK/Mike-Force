@@ -24,6 +24,20 @@ class CfgFunctions
 			class eject_and_parachute {};
 		};
 
+		class mobile_respawn
+		{
+			file = "functions\systems\mobile_respawn";
+			class isTentDeployed {};
+			class mobile_respawn_track_vehicle {};
+			class mobile_respawn_add_supplies {};
+			class mobile_respawn_has_supplies {};
+			class mobile_respawn_init {};
+			class mobile_respawn_job {};
+			class mobile_respawn_register_apc {};
+			class mobile_respawn_unregister_apc {};
+			class mobile_respawn_consume {};
+		};
+
 		class core_helpers
 		{
 			file = "functions\core\helpers";
@@ -112,6 +126,7 @@ class CfgFunctions
 			file = "functions\core\ui";
 			class armor_calc {};
 			class display_location_time {};
+			class ui_warning_dynamic_text {};
 			class ui_create {};
 			class ui_sub_menu {};
 			class ui_update {};
@@ -229,6 +244,16 @@ class CfgFunctions
 			class uwChargeAddAction {};
 			class uwChargeDoPlace {};
 			class uwChargePlacement {};
+		};
+
+		class custom_texture_scripts {
+			file = "custom\advertisement\advert_system";
+			class texture_toggle_add {};
+			class texture_toggle_apply {};
+			class texture_toggle_get_db_key {};
+			class texture_toggle_load {};
+			class texture_toggle_preserve_db_entries {};
+			class texture_toggle_restore_db_entries {};
 		};
 
 		class system_actives {
@@ -446,12 +471,14 @@ class CfgFunctions
 			class tunnels_register_tunnel {};
 			class tunnels_unregister_tunnel {};
 			class tunnels_add_actions {};
+			class tunnels_add_reentry_actions {};
 			class tunnels_action_disable_trap {};
 			class tunnels_open_tunnel_server {};
 			class tunnels_eject_player_client {};
 			class tunnels_spawn_objective_ai {};
 			class tunnels_eject_players {};
 			class tunnels_cleanup_ai {};
+			class tunnels_fallout_detection {};
 		};
 
 		// simple scheduled utility job to make triple sure that critical
@@ -473,6 +500,7 @@ class CfgFunctions
 			class action_supplies {};
 			class client_request_supplies {};
 			class create_supply_officer {};
+			class monitor_food_crate {};
 			class override_crate_contents {};
 			class supplyrequest {};
 		};
@@ -649,6 +677,8 @@ class CfgFunctions
 			class task_pri_build_fob { file = "functions\tasks\primary\fn_task_pri_build_fob.sqf"; };
 			class task_pri_capture { file = "functions\tasks\primary\fn_task_pri_capture.sqf"; };
 			class task_pri_prepare { file = "functions\tasks\primary\fn_task_pri_prepare.sqf"; };
+			class task_pri_prepare_warn_near_ao { file = "functions\tasks\primary\ao_warning_helper\fn_warn_near_ao.sqf"; };
+			class task_pri_prepare_countdown_in_ao { file = "functions\tasks\primary\ao_warning_helper\fn_countdown_in_ao.sqf"; };
 
 			class task_sec_spike_wiretap { file = "functions\tasks\secondary\fn_task_sec_spike_wiretap.sqf";};
 

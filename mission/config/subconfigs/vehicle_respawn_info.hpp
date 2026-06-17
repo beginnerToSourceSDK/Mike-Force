@@ -791,6 +791,7 @@ class spawn_point_types {
 				vehicles[] = {
 					"vn_i_armor_m125_01",
 					"vn_i_armor_m132_01",
+					"vn_b_armor_m577_01",
 					"vn_i_armor_m113_acav_06",
 					"vn_i_armor_m113_acav_05",
 					"vn_i_armor_m113_acav_04",
@@ -945,13 +946,21 @@ class spawn_point_types {
 			};
 
 			class m113 {
-				name = "M113";
+				name = "M113/APCs (1/2)";
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
 					"vn_b_armor_m132_01",
+					"vn_b_armor_m577_01",
 					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m113_acav_06",
 					"vn_b_armor_m125_01",
+				};
+			};
+
+			class m113_2 {
+				name = "M113/APCs (2/2)";
+				icon = VEHICLE_ICON_ARMOUR;
+				vehicles[] = {
 					"vn_b_armor_m113_01",
 					"vn_b_armor_m113_acav_01",
 					"vn_b_armor_m113_acav_02",
