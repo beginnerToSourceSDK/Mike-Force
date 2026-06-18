@@ -28,9 +28,9 @@ call vn_mf_fnc_chat_init;
 // Loop for CS Gas Checks
 [] spawn {
     while {true} do {
-        sleep 0.25;
+        sleep 0.5;
         {
-            sleep 0.25;
+            sleep 0.5;
             [_x] call vn_mf_fnc_checkForGas;
         } forEach allUnits;
     };
