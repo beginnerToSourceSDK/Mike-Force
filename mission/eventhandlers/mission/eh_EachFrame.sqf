@@ -15,7 +15,10 @@
 */
 
 // add code you want to run each frame here
-{
-   [_x] call vn_mf_fnc_checkForGas;
-    
-} forEach allUnits;
+[] spawn {
+   sleep 0.01;
+   {
+      [_x] call vn_mf_fnc_checkForGas;
+      
+   } forEach allUnits;
+};

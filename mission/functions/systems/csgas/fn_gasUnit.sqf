@@ -20,6 +20,8 @@ blurred ppeffectcommit 15;
 	sleep 6.135;
 
 	deleteVehicle _sound;
+
+    (_this # 0) allowFleeing 1;
 };
 
 
@@ -37,4 +39,5 @@ blurred ppeffectcommit 15;
     (_this # 0) setSkill ["aimingShake",0.15];
     (_this # 0) setSkill ["spotTime",0.85];
     
+    (_this # 0) allowFleeing 0;
 };
