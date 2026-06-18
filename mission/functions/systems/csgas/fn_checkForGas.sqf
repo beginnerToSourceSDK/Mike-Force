@@ -1,4 +1,6 @@
- 
+// Function to check if a unit is exposed to CS 
+// By: S. "Scoop" Cooper
+
 params ["_unit"];
 
 _gas = (63 allObjects 3) select {_unit distance _x <= 5}; 
