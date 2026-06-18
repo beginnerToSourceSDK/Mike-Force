@@ -15,6 +15,7 @@
 params ["_unit"];
 
 blurred = ppEffectCreate ["DynamicBlur", 500];
+publicVariable "blurred";
 
 _unit setSkill ["aimingAccuracy", 0];
 _unit setSkill ["aimingSpeed", 0];
@@ -24,41 +25,54 @@ _unit setSkill ["spotTime",0];
 
 
 // Apply effects to given unit ONLY
-[blurred, 15] remoteExec ["ppeffectadjust", _unit];
+[blurred, [5]] remoteExec ["ppeffectadjust", _unit];
 [blurred, true] remoteExec ["ppeffectenable", _unit];
 [blurred, 15] remoteExec ["ppeffectcommit", _unit];
 
 
+
 [_unit] spawn {
 
-    if (isNil _sound) then {
-        _sound = (_this # 0) say3D "cough";
+    _sound = (_this # 0) say3D "cough";
 
-	    sleep 6.135;
+	sleep 6.135;
 
-	    deleteVehicle _sound;
-    };
-    
-
-    (_this # 0) allowFleeing 1;
+	deleteVehicle _sound;
 };
 
 
-[_unit] spawn {
-    _gasTimer = [30] call BIS_fnc_countdown;
+// Force AI to disperse (fleeing)
+if (!isPlayer _unit) then
+{
+    
+    if (isNull _unit getVariable "FleeingCS") then
+    {
+        _unit setVariable ["FleeingCS",true];
+        [_unit] joinSilent grpNull;
+        _unit addWaypoint [position _unit, 50, 1];
+        _unit setCurrentWaypoint [group _unit, 1];
+        _unit setBehaviour "CARELESS";
+    };
+};
+
+// Effects wear off
+[_unit, blurred] spawn {
+    _gasTimer = [15] call BIS_fnc_countdown;
 
     waitUntil {[0] call BIS_fnc_countdown < 1};
 
     // Apply effects to given unit ONLY
-    [blurred, 0] remoteExec ["ppeffectadjust", _unit];
-    [blurred, true] remoteExec ["ppeffectenable", _unit];
-    [blurred, 15] remoteExec ["ppeffectcommit", _unit];
+    [(_this # 1), [0]] remoteExec ["ppeffectadjust", (_this # 0)];
+    [(_this # 1), 15] remoteExec ["ppeffectcommit", (_this # 0)];
 
     (_this # 0) setSkill ["aimingAccuracy", 0.25];
     (_this # 0) setSkill ["aimingSpeed", 0.35];
     (_this # 0) setSkill ["spotDistance",0.85];
     (_this # 0) setSkill ["aimingShake",0.15];
     (_this # 0) setSkill ["spotTime",0.85];
-    
-    (_this # 0) allowFleeing 0;
+
+    [(_this # 0)] joinSilent (((_this # 0) nearEntities [["CAManBase"], 150] select {side (_this # 0) == east and !isPlayer (_this # 0)}) select 0); // HOPEFULLY reform
+
+    (_this # 0) setVariable ["FleeingCS",false];
+    (_this # 0) setBehaviour "AWARE";
 };
