@@ -30,5 +30,10 @@ call vn_mf_fnc_chat_init;
 // Night adaptation for players without CH Bright Nights
 [] spawn {
     sleep 0.1;
-    setApertureNew [1.05, 6, 12, 1];
+    if isClass(configFile >> "CfgPatches" >> "CH_brightnights") then { 
+        
+    } else
+    {
+        setApertureNew [1.05, 6, 12, 1];
+    };   
 };
