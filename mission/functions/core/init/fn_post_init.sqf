@@ -24,3 +24,11 @@ _target_scope call vn_mf_fnc_init_mission_handlers;
 [] call vn_mf_fnc_adv_revive_params;
 
 call vn_mf_fnc_chat_init;
+
+
+
+// Night adaptation for players without CH Bright Nights
+[] spawn {
+    sleep 0.1;
+    setApertureNew [1.05, 6, 12, 1];
+};
