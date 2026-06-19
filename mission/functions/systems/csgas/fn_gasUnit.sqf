@@ -17,6 +17,9 @@ params ["_unit"];
 blurred = ppEffectCreate ["DynamicBlur", 500];
 publicVariable "blurred";
 
+tears = ppEffectCreate ["WetDistortion", 550];
+publicVariable "tears";
+
 _unit setSkill ["aimingAccuracy", 0];
 _unit setSkill ["aimingSpeed", 0];
 _unit setSkill ["spotDistance",0];
@@ -28,8 +31,6 @@ _unit setSkill ["spotTime",0];
 [blurred, [5]] remoteExec ["ppeffectadjust", _unit];
 [blurred, true] remoteExec ["ppeffectenable", _unit];
 [blurred, 15] remoteExec ["ppeffectcommit", _unit];
-
-
 
 [_unit] spawn {
 
@@ -64,6 +65,7 @@ if (!isPlayer _unit) then
     // Apply effects to given unit ONLY
     [(_this # 1), [0]] remoteExec ["ppeffectadjust", (_this # 0)];
     [(_this # 1), 15] remoteExec ["ppeffectcommit", (_this # 0)];
+    [(_this # 1), false] remoteExec ["ppEffectEnable", (_this # 0)];
 
     (_this # 0) setSkill ["aimingAccuracy", 0.25];
     (_this # 0) setSkill ["aimingSpeed", 0.35];
@@ -71,7 +73,8 @@ if (!isPlayer _unit) then
     (_this # 0) setSkill ["aimingShake",0.15];
     (_this # 0) setSkill ["spotTime",0.85];
 
-    [(_this # 0)] joinSilent (((_this # 0) nearEntities [["CAManBase"], 150] select {side (_this # 0) == east and !isPlayer (_this # 0)}) select 0); // HOPEFULLY reform
+    // Reform a patch-work squad
+    [(_this # 0)] joinSilent (((_this # 0) nearEntities [["CAManBase"], 150] select {side (_this # 0) == east and !isPlayer (_this # 0)}) select 0);
 
     (_this # 0) setVariable ["FleeingCS",false];
     (_this # 0) setBehaviour "AWARE";

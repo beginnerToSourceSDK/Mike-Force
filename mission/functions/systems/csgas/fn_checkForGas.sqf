@@ -8,7 +8,7 @@
 
     Parameter(s): Object (Unit to check for exposure)
 
-    Returns: nothing
+    Returns: Boolean
 
     Example(s): none
 */
