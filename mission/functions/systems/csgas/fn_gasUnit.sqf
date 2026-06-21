@@ -17,8 +17,6 @@ params ["_unit"];
 blurred = ppEffectCreate ["DynamicBlur", 500];
 publicVariable "blurred";
 
-tears = ppEffectCreate ["WetDistortion", 550];
-publicVariable "tears";
 
 _unit setSkill ["aimingAccuracy", 0];
 _unit setSkill ["aimingSpeed", 0];
