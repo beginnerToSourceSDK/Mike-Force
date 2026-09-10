@@ -74,6 +74,6 @@ if (!isPlayer _unit) then
     // Reform a patch-work squad
     [(_this # 0)] joinSilent (((_this # 0) nearEntities [["CAManBase"], 150] select {side (_this # 0) == east and !isPlayer (_this # 0)}) select 0);
 
-    (_this # 0) setVariable ["FleeingCS",false];
+    (_this # 0) setVariable ["FleeingCS",nil];
     (_this # 0) setBehaviour "AWARE";
 };
