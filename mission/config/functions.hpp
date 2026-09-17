@@ -51,6 +51,12 @@ class CfgFunctions
 			class toggle_captive {};
 		};
 
+		class surfaceShooting
+		{
+			file="functions\systems\surface_shooting";
+			class surfaceShooting {};
+		};
+
 		class core_init
 		{
 			file =	"functions\core\init";
