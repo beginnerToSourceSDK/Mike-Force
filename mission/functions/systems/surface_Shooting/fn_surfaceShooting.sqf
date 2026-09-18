@@ -24,7 +24,7 @@
 }; 
 
 
-{addUserActionEventHandler [_x, "Activated", {
+{addUserActionEventHandler [_x, "Activate", {
     if ((getPosASL player # 2) < -1.0 && pose player == "SurfaceDiving" && !underwater player && alive player && (player getVariable "shootingOnWater") == true) then
     {
         player switchMove "";
