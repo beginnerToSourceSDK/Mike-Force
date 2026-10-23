@@ -113,8 +113,8 @@ _vehicle addAction [
         [_bagHolder, [180, -90, 180]] call BIS_fnc_setObjectRotation;
 
         // --- Restore original backpack/items ---
-        [_player, _oldBackpackClass, _oldBackpackItems, _foundClass] spawn {
-            params ["_p", "_oldClass", "_oldItems", "_parachuteClass"];
+        [_player, _oldBackpackClass, _oldBackpackItems, _foundClass, _bagHolder;] spawn {
+            params ["_p", "_oldClass", "_oldItems", "_parachuteClass","_bagHolder"];
 
             waitUntil { (backpack _p != _parachuteClass) || (!alive _p) };
 
@@ -126,8 +126,9 @@ _vehicle addAction [
                 _p addBackpack _oldClass;
                 { _p addItemToBackpack _x } forEach _oldItems;
             };
+            deleteVehicle _bagHolder;
         };
-        deleteVehicle _bagHolder;
+        
     },
     nil,
     1.5,
