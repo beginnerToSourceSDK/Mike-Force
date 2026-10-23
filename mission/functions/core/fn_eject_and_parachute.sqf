@@ -106,29 +106,24 @@ _vehicle addAction [
         waitUntil { vehicle _player != _vehicle };
         sleep 0.5;
 
-        // Chest bag containing items from before ejection
-
-        _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle player modelToWorld [0,-0.1,0.75]);
-        _bagHolder addBackpackCargoGlobal [_oldBackpackClass, 1];
+        _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle player modelToWorld [0,-0.6,1.7/4]); 
+        _bagHolder addBackpackCargoGlobal [_oldBackpackClass, 1]; 
 
         _bagHolder attachTo [vehicle player, [0,0.75,0]]; 
         [_bagHolder, [180, -90, 180]] call BIS_fnc_setObjectRotation;
 
-        [_player, _oldBackpackClass, _oldBackpackItems, _bagHolder] spawn
-        {
-            params ["_player", "_oldBackpackClass","_oldBackpackItems", "_bagHolder"];
+        // --- Restore original backpack/items ---
+        [_player, _oldBackpackClass, _oldBackpackItems, _foundClass] spawn {
+            params ["_p", "_oldClass", "_oldItems", "_parachuteClass"];
 
-            waitUntil {vehicle player == player};
+            waitUntil { (backpack _p != _parachuteClass) || {!alive _p} };
 
-            deleteVehicle _bagHolder
-
-            _player addBackpack _oldBackpackClass;
-
-            {
-               _player addItemToBackpack _x;
-            } forEach _oldBackpackItems;
+            if (_oldClass != "") then {
+                _p addBackpack _oldClass;
+                { _p addItemToBackpack _x } forEach _oldItems;
+            };
         };
-        
+
     },
     nil,
     1.5,
