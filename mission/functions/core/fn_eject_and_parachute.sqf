@@ -107,7 +107,7 @@ _vehicle addAction [
         sleep 0.5;
 
         // Wait until the play deploys their chute, just in case.
-        waitUntil { vehicle _player == _foundClass};
+        waitUntil { vehicle _player != _player };
         
         _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle player modelToWorld [0,-0.6,1.7/4]); 
         _bagHolder addBackpackCargoGlobal [_oldBackpackClass, 1]; 
