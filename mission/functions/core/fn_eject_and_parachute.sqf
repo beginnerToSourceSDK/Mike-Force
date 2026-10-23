@@ -116,7 +116,7 @@ _vehicle addAction [
         [_player, _oldBackpackClass, _oldBackpackItems, _foundClass] spawn {
             params ["_p", "_oldClass", "_oldItems", "_parachuteClass"];
 
-            waitUntil { (backpack _p != _parachuteClass) || {!alive _p} };
+            waitUntil { vehicle _p == _p || {!alive _p} };
 
             if (_oldClass != "") then {
                 _p addBackpack _oldClass;
