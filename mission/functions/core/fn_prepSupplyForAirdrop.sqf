@@ -24,7 +24,7 @@ _vn_log_actions_array pushBack
                     _success = cursorObject setVehicleCargo _crate;
                     if (_success == false) then
                     {
-                        hint "Cargo space is full!";
+                        hint "Cargo space is full or the action failed!";
                     };
                 };
         }, 
