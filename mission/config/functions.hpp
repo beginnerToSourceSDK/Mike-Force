@@ -22,6 +22,7 @@ class CfgFunctions
 			class bulldozer_trees {};
 			class spawn_tank_dozer {};
 			class eject_and_parachute {};
+			class prepSupplyForAirdrop {};
 		};
 
 		class mobile_respawn

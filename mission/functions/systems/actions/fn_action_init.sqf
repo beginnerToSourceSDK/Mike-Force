@@ -56,4 +56,6 @@ if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //
 	call vn_mf_fnc_daccong_add_teleport_actions;
 	// For limpet mines 
 	[player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
+	// For airdropping supply crates
+	call vn_mf_fnc_prepSupplyForAirdrop;
 };
