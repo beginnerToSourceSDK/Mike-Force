@@ -17,16 +17,18 @@ _vn_log_actions_array pushBack
         "Rig crate for airdrop", 
         { 
                 // Let the crate drop, then place it inside the Chinook
-                 spawn {
-                    _crate = vn_log_moving_object_obj;
+                spawn { 
+                    _crate = vn_log_moving_object_obj; 
                     vn_log_moving_object = false;
-                    waitUntil {getPos _crate # 2 <= 0};
-                    _success = cursorObject setVehicleCargo _crate;
-                    if (_success == false) then
-                    {
-                        hint "Cargo space is full or the action failed!";
-                    };
+                    sleep 0.4;
+                    _success = cursorObject setVehicleCargo _crate; 
+                     
+                    if (_success == false) then 
+                    { 
+                        hint "Cargo space is full or the action failed!"; 
+                    }; 
                 };
+
         }, 
         [], 
         10, 
