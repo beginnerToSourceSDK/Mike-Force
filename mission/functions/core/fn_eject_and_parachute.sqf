@@ -117,10 +117,6 @@ _vehicle addAction [
         _bagHolder attachTo [vehicle player, [0,0.75,0]];
         [_bagHolder, [180, -90, 180]] call BIS_fnc_setObjectRotation;
 
-
-        
-
-        hint "Pack created";
         /*
         // --- Restore original backpack/items ---
         [_player, _oldBackpackClass, _oldBackpackItems, _foundClass, _bagHolder] spawn {
