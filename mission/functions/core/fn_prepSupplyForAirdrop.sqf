@@ -21,7 +21,11 @@ _vn_log_actions_array pushBack
                     _crate = vn_log_moving_object_obj;
                     vn_log_moving_object = false;
                     waitUntil {getPos _crate # 2 <= 0};
-                    cursorObject setVehicleCargo _crate;
+                    _success = cursorObject setVehicleCargo _crate;
+                    if (_success == false) then
+                    {
+                        hint "Cargo space is full!";
+                    };
                 };
         }, 
         [], 
