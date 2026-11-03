@@ -45,7 +45,31 @@ if (count (player getVariable ["vn_mf_db_attributes", []]) isEqualto 0) then
 else
 {
   _stamina_scheme = "Exhausted";
-  player allowSprint false;
+  // Enable running when taking anti-biotics and ill
+  if (player getVariable "vn_mf_db_atbiActive" == true) then
+  {
+    player allowSprint true; // Treat illness
+    0 spawn {
+      sleep 90; // Effects of anti-biotics lasts for 90 seconds
+      player allowSprint false;
+      player setVariable ['vn_mf_db_atbiActive', false];
+    };
+  } else {
+    player allowSprint false;
+  };
+  
+};
+
+// Enable running when taking pain-killers and limping
+if (player getVariable "vn_mf_db_pkActive" == true && player getHitPointDamage "HitLegs" >= 0.5) then
+{
+  previousLegDamage = player getHitPointDamage "HitLegs";
+  player setHitPointDamage ["HitLegs", 0.45]; // Stop the limping
+    [previousLegDamage] spawn { 
+      sleep 90; // Effects of pain-killers lasts for 90 seconds
+      player setHitPointDamage ["HitLegs", (_this # 0)];
+      player setVariable ['vn_mf_db_pkActive', false];
+  };
 };
 
 setStaminaScheme _stamina_scheme;

@@ -69,6 +69,29 @@ class CfgItemInteractions
 			{"diarrhea", 1}
 		};
 	};
+
+	class vn_prop_med_painkillers : vn_prop_med_antivenom
+	{
+		interactActions[] = 
+		{
+			{
+				"STR_vn_mf_take_medicine",
+				"call vn_mf_fnc_consume; player setVariable ['vn_mf_db_pkActive', true];"
+			};
+		};
+	};
+
+	class vn_prop_med_antibiotics : vn_prop_med_antivenom
+	{
+		interactActions[] = 
+		{
+			{
+				"STR_vn_mf_take_medicine",
+				"call vn_mf_fnc_consume; player setVariable ['vn_mf_db_atbiActive', true];"
+			};
+		};
+	};
+
 	class vn_prop_drink_01 // canteen 0.75l
 	{
 		disallowRepack = 1;

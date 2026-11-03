@@ -19,4 +19,11 @@ class tracking
 	{
 		script = "vn_mf_fnc_player_rank_up";
 	};
+	class vn_mf_db_pkActive : vn_mf_db_hunger
+	{
+	}; // Pain-killers
+
+	class vn_mf_db_atbiActive : vn_mf_db_hunger
+	{
+	}; // Anti-biotics
 };
