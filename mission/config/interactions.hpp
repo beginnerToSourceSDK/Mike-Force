@@ -355,71 +355,71 @@ class CfgItemInteractions
 		food = 1;
 	};
 
-	class vn_prop_food_box_01_01 : vn_prop_food_meal_01 // Boxed Rations. Contains 10Kg of food: Ration box (LRP Ration Box)
+	class vn_prop_food_box_01_01 // Boxed Rations. Contains 10Kg of food: Ration box (LRP Ration Box)
 	{
-		consume = 10;
-		water = -0.1;
-		food = 1;
+		disallowRepack = 1;
+		removeonempty = 1;
+		consume = 10; // 10 per case
+		water = 0;
+		food = 0;
+		interactActions[] =
+		{
+			{
+				"STR_vn_mf_unpack_case",
+				"call vn_mf_fnc_consume; call vn_mf_fnc_unpackRationCase;"
+			}
+		};
 	};
-	class vn_prop_food_box_01_02 : vn_prop_food_meal_01 // Boxed Rations. Contains 10Kg of food: Ration box (PIR Ration Box)
+	class vn_prop_food_box_01_02 : vn_prop_food_box_01_01 // Boxed Rations. Contains 10Kg of food: Ration box (PIR Ration Box)
 	{
-		consume = 10;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_01_03 : vn_prop_food_meal_01 // Boxed Rations. Contains 10Kg of food: Ration box (MCI Ration Box)
+	class vn_prop_food_box_01_03 : vn_prop_food_box_01_01 // Boxed Rations. Contains 10Kg of food: Ration box (MCI Ration Box)
 	{
-		consume = 10;
-		water = -0.1;
-		food = 1;
+		consume = "100 / 12"; // 12 per case
 	};
-	class vn_prop_food_box_02_01 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Ham and Eggs Chopped)
+	class vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Ham and Eggs Chopped)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		disallowRepack = 1;
+		removeonempty = 1;
+		consume = 100;
+		water = 0;
+		food = 0;
+		interactActions[] =
+		{
+			{
+				"STR_vn_mf_unpack_box",
+				"call vn_mf_fnc_consume; call vn_mf_fnc_unpackMCIBox;"
+			}
+		};
 	};
-	class vn_prop_food_box_02_02 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Ham Fried)
+	class vn_prop_food_box_02_02 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Ham Fried)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_03 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Beans w/ Frankfurter Chunks)
+	class vn_prop_food_box_02_03 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Beans w/ Frankfurter Chunks)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_04 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Spaghetti w/ Ground Meat)
+	class vn_prop_food_box_02_04 :  vn_prop_food_box_02_01// Boxed Rations. Contains 2Kg of food: Ration box (Spaghetti w/ Ground Meat)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_05 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Turkey Loaf)
+	class vn_prop_food_box_02_05 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Turkey Loaf)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_06 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Pork Steak)
+	class vn_prop_food_box_02_06 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Pork Steak)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_07 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Beef w/ Spiced Sauce)
+	class vn_prop_food_box_02_07 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Beef w/ Spiced Sauce)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
-	class vn_prop_food_box_02_08 : vn_prop_food_meal_01 // Boxed Rations. Contains 2Kg of food: Ration box (Chicken Boned)
+	class vn_prop_food_box_02_08 :  vn_prop_food_box_02_01 // Boxed Rations. Contains 2Kg of food: Ration box (Chicken Boned)
 	{
-		consume = 50;
-		water = -0.1;
-		food = 1;
+		
 	};
 
 	class vn_prop_food_can_01_01 : vn_prop_food_meal_01 // Canned Rations. Contains 0.5Kg of food: Ration can (Beefsteak)

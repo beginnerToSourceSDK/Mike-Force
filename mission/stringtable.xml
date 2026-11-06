@@ -134,6 +134,12 @@
       <Key ID="STR_vn_mf_eat_food">
         <Original>Eat Food</Original>
       </Key>
+      <Key ID="STR_vn_mf_unpack_case">
+        <Original>Unpack Case</Original>
+      </Key>
+      <Key ID="STR_vn_mf_unpack_box">
+        <Original>Unpack Box</Original>
+      </Key>
       <Key ID="STR_vn_mf_destroy_task">
         <Original>Destroy Site</Original>
       </Key>

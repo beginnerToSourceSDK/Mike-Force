@@ -367,6 +367,8 @@ class CfgFunctions
 		class system_consumables {
 			file = "functions\systems\consumables";
 			class consume {};
+			class unpackMCIBox {};
+			class unpackRationCase {};
 			class eatdrink {};
 			class enable_arsenal_food_drink_overlay {};
 			class health_effects {};
